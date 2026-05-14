@@ -60,4 +60,3 @@ jobs:
                      ${{ secrets.DOCKER_USERNAME }}/hello-spring:latest
                      ${{ secrets.DOCKER_USERNAME }}/hello-spring:${{ github.sha }}
                      ${{ secrets.DOCKER_USERNAME }}/hello-spring:${{ github.ref_name }}
-                     
