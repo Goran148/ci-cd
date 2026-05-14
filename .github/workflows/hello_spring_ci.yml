@@ -33,16 +33,16 @@ jobs:
 
         steps:
             - name: Chekout code
-              run:
+              run: e
 
             - name: Setup JDK
-              run: 
+              run: e
 
             - name: Build Jar for Docker
-              run: 
+              run: e
 
             - name: Login to DockerHub
-              run: 
+              run: e
 
             - name: Build and Push Docker Image
-              run:
+              run: e
