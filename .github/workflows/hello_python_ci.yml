@@ -29,8 +29,8 @@ jobs:
             
 
     docker-build-push:
-        needs: build-test
         runs-on: ubunut-latest
+        needs: build-test
 
         steps:
             - name: Checkout code
