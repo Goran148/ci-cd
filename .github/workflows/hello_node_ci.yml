@@ -2,9 +2,12 @@ name: Node.js app
 
 on:
     push:
-        # path: ""
+        branches:
+             - main
+        paths: 
+             - "docker/app1-hello/node"
     workflow_dispatch:
-
+        
 jobs:
     build-test:
         runs-on: ubuntu-latest
