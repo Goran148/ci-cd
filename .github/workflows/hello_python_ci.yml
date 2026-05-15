@@ -29,6 +29,7 @@ jobs:
             
 
     docker-build-push:
+        needs: build-test
         runs-on: ubunut-latest
 
         steps:
