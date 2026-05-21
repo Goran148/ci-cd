@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapptest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapptest
+  template:
+    metadata:
+      labels:
+        app: myapptest
+    spec:
+      containers:
+        - name: myapptest
+          image: goran14/hello-python
+          env:
+           - name: ENV_VALUE
+             value: "Hello from app.yaml"
+           - name: DB_PASSWORD
+             value: "cGFzc3dvcmQ=" # base64 for 'passowrd' 
+          # env:
+          #   - name: ENV_VALUE
+          #     valueFrom:
+          #       configMapKeyRef:
+          #          name: app-config
+          #          key: APP_MESSAGE
+          #   - name: DB_PASSWORD
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: db-secret
+          #         key: DB_PASSWORD
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapptest
+spec:
+  selector:
+    app: myapptest
+  type: NodePort
+  ports:
+    - port: 123
+      targetPort: 3000
+      nodePort: 32001
